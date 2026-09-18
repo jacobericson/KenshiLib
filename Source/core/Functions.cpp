@@ -114,6 +114,7 @@ KLIB_EXPORT KenshiLib::HookStatus QueueHookInternal(size_t ID, void* target, voi
         ErrorLog("Error queueing hook: " + std::to_string((int64_t)status));
         return KenshiLib::FAIL;
     }
+    return KenshiLib::SUCCESS;
 }
 
 // queue hook to be added

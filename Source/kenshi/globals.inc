@@ -25,7 +25,7 @@ QWORD 0
 QWORD 0
 ?gui@@3PEAVForgottenGUI@@EA endp
 
-; class KingOfRenderThread au; // RVA = 0x21306C0 Global
+; class KingOfRenderThread au; // RVA = 0x2130220 Global
 ?au@@3PEAVKingOfRenderThread@@EA proc EXPORT
 QWORD 0
 ?au@@3PEAVKingOfRenderThread@@EA endp
