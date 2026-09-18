@@ -5,6 +5,7 @@
 #include <ogre/OgreQuaternion.h>
 #include <kenshi/Enums.h>
 #include <kenshi/util/lektor.h>
+#include <kenshi/Weather.h>
 
 class GameData;
 class hand;
@@ -48,61 +49,6 @@ class AreaBiomeGroup;
 class Season;
 class EffectGroup;
 // TODO move
-class WeatherRegion : public Ogre::GeneralAllocatedObject
-{
-public:
-    // Ogre::AllocatedObject<Ogre::CategorisedAllocPolicy<0> > offset = 0x0, length = 0x1
-    class Listener
-    {
-    public:
-        // VTable         : (none)
-        virtual void weatherUpdated(WeatherInstance* _a1, bool _a2) = 0;// public vtable offset = 0x0 missing arg names
-        // no_addr void Listener(const class WeatherRegion::Listener & _a1);// public missing arg names
-        Listener();// public RVA = 0xFCCB0
-        Listener* _CONSTRUCTOR();// public RVA = 0xFCCB0
-        // no_addr class WeatherRegion::Listener & operator=(const class WeatherRegion::Listener & _a1);// public missing arg names
-    };
-    // Typedef        : WeatherListenerList
-    // no_addr void WeatherRegion(const class WeatherRegion & _a1);// public missing arg names
-    WeatherRegion(AreaBiomeGroup* biomeGroup);// public RVA = 0x9DE120
-    WeatherRegion* _CONSTRUCTOR(AreaBiomeGroup* biomeGroup);// public RVA = 0x9DE120
-    ~WeatherRegion();// public RVA = 0x9DB070
-    void _DESTRUCTOR();// public RVA = 0x9DB070
-    void reset();// public RVA = 0x9DCED0
-    WeatherInstance* getWeatherInstance() const;// public RVA = 0x9DA920
-    void setCurrentSeason(int seasonIndex, int seasonEnd);// public RVA = 0x9DAC10
-    // no_addr class Season * getCurrentSeason();// public
-    float getNewWeatherStrength() const;// public RVA = 0x9DAC30
-    void update();// public RVA = 0x9DAD30
-    void updateBT();// public RVA = 0x9DC6A0
-    void addListener(WeatherRegion::Listener* listener);// public RVA = 0x9DB310
-    void removeListener(WeatherRegion::Listener* listener);// public RVA = 0x9DAEB0
-    void addGlobalEffect(EffectType::Enum type);// public RVA = 0x9DB6F0
-    void getNewSeason();// private RVA = 0x9DC640
-    void weatherChanged(bool newWeather);// private RVA = 0x9DACB0
-    void updateWeatherEffects();// private RVA = 0x9DB340
-    void save(GameData* data, const std::string& key);// private RVA = 0x9DC830
-    void load(GameData* data, const std::string& key);// private RVA = 0x9DCA50
-    AreaBiomeGroup* biomeGroup; // 0x0 Member
-    Ogre::vector<Season*>::type seasons; // 0x8 Member
-    float weatherStrengthMultiplierMin; // 0x28 Member
-    float weatherStrengthMultiplierMax; // 0x2C Member
-    WeatherInstance* weatherInstance; // 0x30 Member
-    Season* currentSeason; // 0x38 Member
-    int currentSeasonIndex; // 0x40 Member
-    int currentSeasonEndDay; // 0x44 Member
-    Ogre::vector<WeatherRegion::Listener*>::type listeners; // 0x48 Member
-    bool biomeGroupLoaded; // 0x68 Member
-    bool requestUpdateEffects; // 0x69 Member
-    Ogre::vector<EffectGroup*>::type effects; // 0x70 Member
-    std::vector<std::pair<EffectType::Enum, float>, Ogre::STLAllocator<std::pair<EffectType::Enum, float>, Ogre::GeneralAllocPolicy > > activeGlobalEffects; // 0x90 Member
-    bool activeCameraBiome; // 0xB0 Member
-    bool weatherUpdated; // 0xB1 Member
-    bool instanceUpdated; // 0xB2 Member
-    // no_addr class WeatherRegion & operator=(const class WeatherRegion & _a1);// public missing arg names
-    // no_addr void * __vecDelDtor(unsigned int _a1);// public missing arg names
-};
-
 class PhysicsCollection : public Ogre::GeneralAllocatedObject
 {
 public:

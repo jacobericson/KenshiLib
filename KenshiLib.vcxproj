@@ -332,6 +332,7 @@ lib.exe /OUT:"$(OutDir)$(TargetName).lib" "$(OutDir)$(TargetName)_export.lib" "$
     <ClInclude Include="Include\kenshi\gui\CharacterStatsWindow.h" />
     <ClInclude Include="Include\kenshi\gui\CharacterTradingWindow.h" />
     <ClInclude Include="Include\kenshi\gui\ContextMenu.h" />
+    <ClInclude Include="Include\kenshi\gui\ContextMenuGUI.h" />
     <ClInclude Include="Include\kenshi\gui\DatapanelGUI.h" />
     <ClInclude Include="Include\kenshi\gui\DataPanelLine.h" />
     <ClInclude Include="Include\kenshi\gui\DialogueWindow.h" />
@@ -387,6 +388,7 @@ lib.exe /OUT:"$(OutDir)$(TargetName).lib" "$(OutDir)$(TargetName)_export.lib" "$
     <ClInclude Include="Include\kenshi\NavMesh.h" />
     <ClInclude Include="Include\kenshi\NavMeshGenerator.h" />
     <ClInclude Include="Include\kenshi\OptionsHolder.h" />
+    <ClInclude Include="Include\kenshi\ParticlePool.h" />
     <ClInclude Include="Include\kenshi\PhysicsActual.h" />
     <ClInclude Include="Include\kenshi\PhysicsCollection.h" />
     <ClInclude Include="Include\kenshi\Platoon.h" />

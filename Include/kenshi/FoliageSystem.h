@@ -5,6 +5,7 @@
 #include <kenshi/Enums.h>
 #include <ogre/OgreVector4.h>
 #include <ogre/OgreMatrix4.h>
+#include <ogre/OgreQuaternion.h>
 
 class GameData;
 class ZoneMap;
@@ -137,3 +138,5 @@ public:
     // no_addr class FoliageSystem & operator=(const class FoliageSystem & _a1);// public missing arg names
     // no_addr void * __vecDelDtor(unsigned int _a1);// public missing arg names
 };
+
+void getFoliageRotation(FoliageSystem::EntData* data, float x, float z, Ogre::Quaternion& rotation);// RVA = 0x6CB8A0

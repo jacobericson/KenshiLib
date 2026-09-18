@@ -145,6 +145,7 @@
     <ClCompile Include="..\Include\kenshi\gui\CharacterStatsWindow.h" />
     <ClCompile Include="..\Include\kenshi\gui\CharacterTradingWindow.h" />
     <ClCompile Include="..\Include\kenshi\gui\ContextMenu.h" />
+    <ClCompile Include="..\Include\kenshi\gui\ContextMenuGUI.h" />
     <ClCompile Include="..\Include\kenshi\gui\DatapanelGUI.h" />
     <ClCompile Include="..\Include\kenshi\gui\DataPanelLine.h" />
     <ClCompile Include="..\Include\kenshi\gui\DialogueWindow.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="..\Include\kenshi\NavMesh.h" />
     <ClCompile Include="..\Include\kenshi\NavMeshGenerator.h" />
     <ClCompile Include="..\Include\kenshi\OptionsHolder.h" />
+    <ClCompile Include="..\Include\kenshi\ParticlePool.h" />
     <ClCompile Include="..\Include\kenshi\PhysicsActual.h" />
     <ClCompile Include="..\Include\kenshi\PhysicsCollection.h" />
     <ClCompile Include="..\Include\kenshi\Platoon.h" />

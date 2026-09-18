@@ -120,15 +120,7 @@ public:
     // virtual void * __vecDelDtor(unsigned int _a1) = 0;// public vtable offset = 0x0 missing arg names
 };
 
-class CampaignTriggerData
-{
-public:
-    GameData* what; // 0x0 Member
-    int minTime; // 0x8 Member
-    int maxTime; // 0xC Member
-    float chance; // 0x10 Member
-};
-
+class CampaignTriggerData;
 class Faction;
 class WorldEventStateQueryList;
 class DialogChoiceList;

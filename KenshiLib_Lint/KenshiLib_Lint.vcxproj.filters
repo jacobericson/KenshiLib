@@ -204,6 +204,9 @@
     <ClCompile Include="..\Include\kenshi\gui\ContextMenu.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Include\kenshi\gui\ContextMenuGUI.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\Include\kenshi\gui\DatapanelGUI.h">
       <Filter>Header Files</Filter>
     </ClCompile>
@@ -367,6 +370,9 @@
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Include\kenshi\OptionsHolder.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Include\kenshi\ParticlePool.h">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Include\kenshi\PhysicsActual.h">

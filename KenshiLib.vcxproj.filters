@@ -2237,6 +2237,9 @@
     <ClInclude Include="Include\kenshi\OptionsHolder.h">
       <Filter>Header Files\kenshi</Filter>
     </ClInclude>
+    <ClInclude Include="Include\kenshi\ParticlePool.h">
+      <Filter>Header Files\kenshi</Filter>
+    </ClInclude>
     <ClInclude Include="Include\kenshi\PhysicsActual.h">
       <Filter>Header Files\kenshi</Filter>
     </ClInclude>
@@ -2439,6 +2442,9 @@
       <Filter>Header Files\kenshi\gui</Filter>
     </ClInclude>
     <ClInclude Include="Include\kenshi\gui\ContextMenu.h">
+      <Filter>Header Files\kenshi\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\kenshi\gui\ContextMenuGUI.h">
       <Filter>Header Files\kenshi\gui</Filter>
     </ClInclude>
     <ClInclude Include="Include\kenshi\gui\MessageBoxManager.h">
