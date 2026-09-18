@@ -368,8 +368,11 @@ public:
         float _32; // 0x1C Member
         float _33; // 0x20 Member
     };
-    S s; // 0x0 Member
-    float m[0x3][0x3]; // 0x0 Member
+    union
+    {
+        S s; // 0x0 Member
+        float m[0x3][0x3]; // 0x0 Member
+    };
 };
 
 class NxMat33

@@ -113,6 +113,9 @@ namespace Ogre {
         /// The memory manager used to allocate the ObjectData.
         ObjectMemoryManager *mObjectMemoryManager;
 
+        /// Kenshi's Ogre: the tag point this object is attached to, if any (@see setTagPoint).
+        TagPoint *mTagPoint;
+
 #ifndef NDEBUG
         mutable bool mCachedAabbOutOfDate;
 #endif
@@ -554,6 +557,11 @@ namespace Ogre {
             the render queue will receive shadows. 
         */
         bool getReceivesShadows();
+
+        /** Kenshi's Ogre: records the tag point this object is attached to (internal use only). */
+        void setTagPoint( TagPoint *tagPoint );
+        /** Kenshi's Ogre: frees the tag point recorded by setTagPoint, if any, and forgets it. */
+        void detachFromBone(void);
 
         /** Method to allow a caller to abstractly iterate over the Renderable
             instances that this MovableObject will add to the render queue when

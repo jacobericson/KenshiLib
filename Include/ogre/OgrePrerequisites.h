@@ -364,6 +364,53 @@ namespace Ogre {
     typedef SharedPtr<Texture> TexturePtr;
 }
 
+/* The memory headers below and this file include each other: OgreMemoryAllocatorConfig.h
+pulls in OgreMemoryAllocatedObject.h and OgreMemorySTLAllocator.h, and both of those start
+with OgrePrerequisites.h. Whichever of them a translation unit includes first, the container
+wrappers at the end of this file are parsed before STLAllocator and the allocation policies
+are complete, so their default arguments are declared here first (MSVC tolerates the
+forward reference, other compilers do not).
+*/
+namespace Ogre
+{
+    /** A set of categories that indicate the purpose of a chunk of memory
+    being allocated. 
+    These categories will be provided at allocation time in order to allow
+    the allocation policy to vary its behaviour if it wishes. This allows you
+    to use a single policy but still have variant behaviour. The level of 
+    control it gives you is at a higher level than assigning different 
+    policies to different classes, but is the only control you have over
+    general allocations that are primitive types.
+    */
+    enum MemoryCategory
+    {
+        /// General purpose
+        MEMCATEGORY_GENERAL = 0,
+        /// Geometry held in main memory
+        MEMCATEGORY_GEOMETRY = 1, 
+        /// Animation data like tracks, bone matrices
+        MEMCATEGORY_ANIMATION = 2, 
+        /// Nodes, control data
+        MEMCATEGORY_SCENE_CONTROL = 3,
+        /// Scene object instances
+        MEMCATEGORY_SCENE_OBJECTS = 4,
+        /// Other resources
+        MEMCATEGORY_RESOURCE = 5,
+        /// Scripting
+        MEMCATEGORY_SCRIPTING = 6,
+        /// Rendersystem structures
+        MEMCATEGORY_RENDERSYS = 7,
+
+        
+        // sentinel value, do not use 
+        MEMCATEGORY_COUNT = 8
+    };
+
+    template <MemoryCategory Cat> class CategorisedAllocPolicy;
+    template <typename T, typename AllocPolicy> class STLAllocator;
+    typedef CategorisedAllocPolicy<MEMCATEGORY_GENERAL> GeneralAllocPolicy;
+}
+
 /* Include all the standard header *after* all the configuration
 settings have been made.
 */

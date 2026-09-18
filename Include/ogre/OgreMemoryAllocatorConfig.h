@@ -147,38 +147,7 @@ namespace Ogre
     *  @{
     */
 
-    /** A set of categories that indicate the purpose of a chunk of memory
-    being allocated. 
-    These categories will be provided at allocation time in order to allow
-    the allocation policy to vary its behaviour if it wishes. This allows you
-    to use a single policy but still have variant behaviour. The level of 
-    control it gives you is at a higher level than assigning different 
-    policies to different classes, but is the only control you have over
-    general allocations that are primitive types.
-    */
-    enum MemoryCategory
-    {
-        /// General purpose
-        MEMCATEGORY_GENERAL = 0,
-        /// Geometry held in main memory
-        MEMCATEGORY_GEOMETRY = 1, 
-        /// Animation data like tracks, bone matrices
-        MEMCATEGORY_ANIMATION = 2, 
-        /// Nodes, control data
-        MEMCATEGORY_SCENE_CONTROL = 3,
-        /// Scene object instances
-        MEMCATEGORY_SCENE_OBJECTS = 4,
-        /// Other resources
-        MEMCATEGORY_RESOURCE = 5,
-        /// Scripting
-        MEMCATEGORY_SCRIPTING = 6,
-        /// Rendersystem structures
-        MEMCATEGORY_RENDERSYS = 7,
-
-        
-        // sentinel value, do not use 
-        MEMCATEGORY_COUNT = 8
-    };
+    // MemoryCategory is declared in OgrePrerequisites.h, ahead of the memory headers.
     /** @} */
     /** @} */
 
@@ -261,7 +230,7 @@ namespace Ogre
 
 namespace Ogre
 {
-    // Useful shortcuts
+    // Useful shortcuts (GeneralAllocPolicy is also declared in OgrePrerequisites.h)
     typedef CategorisedAllocPolicy<Ogre::MEMCATEGORY_GENERAL> GeneralAllocPolicy;
     typedef CategorisedAllocPolicy<Ogre::MEMCATEGORY_GEOMETRY> GeometryAllocPolicy;
     typedef CategorisedAllocPolicy<Ogre::MEMCATEGORY_ANIMATION> AnimationAllocPolicy;

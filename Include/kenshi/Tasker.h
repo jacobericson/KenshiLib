@@ -85,7 +85,12 @@ public:
     // no_addr bool fulfillsResult(enum StateType _a1);// public missing arg names
     int numRequirements; // 0xA8 Member
     TaskStateData requirements[0xB]; // 0xAC Member
-    float (AI::* scoreFunction)(const hand&, const Ogre::Vector3&); // 0x108 Member
+    // The game declared scoreFunction and _findTarget while AI was still an incomplete type, so
+    // they use MSVC's most general pointer-to-member representation: 24 bytes, function pointer
+    // first, then the this/vbtable adjustments (all zero for AI's own methods; a null pointer is
+    // {0, 0, 0, -1}). A translation unit that has already seen the complete AI would shrink the
+    // member to 8 bytes and shift everything after it, so the size is pinned here.
+    union { float (AI::* scoreFunction)(const hand&, const Ogre::Vector3&); char _scoreFunctionStorage[0x18]; }; // 0x108 Member
     // no_addr bool isJob();// public
     bool isResultsComplete(AI* ai, const hand& target, const hand& subTarget, const Ogre::Vector3& location);// public RVA = 0x60EDF0
     bool isResultsComplete_ignoreSubtasker(AI* ai, const hand& target, const hand& subTarget, const Ogre::Vector3& location);// public RVA = 0x60E940
@@ -103,7 +108,7 @@ public:
     std::string description; // 0x138 Member
     float runTargetFind(AI* ai, const hand& _target, hand& out, bool justAsking);// public RVA = 0x60ECE0
     bool _targetsRemaining(AI* ai, const hand& _target);// public RVA = 0x50B9F0
-    float (AI::* _findTarget)(const hand&, hand&, bool); // 0x160 Member
+    union { float (AI::* _findTarget)(const hand&, hand&, bool); char _findTargetStorage[0x18]; }; // 0x160 Member (see scoreFunction)
     // no_addr void ~TaskData();// public
     // no_addr class TaskData & operator=(const class TaskData & _a1);// public missing arg names
     // no_addr void * __vecDelDtor(unsigned int _a1);// public missing arg names
