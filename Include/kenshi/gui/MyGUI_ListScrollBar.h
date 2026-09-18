@@ -13,10 +13,10 @@ namespace MyGUI
         // MyGUI::ScrollBar offset = 0x0, length = 0x510
         // Typedef        : EventHandle_ListScrollBarPtrStringInt
         // no_addr static const class std::basic_string<char,std::char_traits<char>,std::allocator<char> > & getClassTypeName();// public
-        virtual const std::string& getTypeName() = 0;// public vtable offset = 0x0
+        virtual const std::string& getTypeName() const = 0;// public vtable offset = 0x0
         // Typedef        : Base
         // Typedef        : RTTIBase
-        virtual bool isType(const type_info& _a1) = 0;// public vtable offset = 0x0 missing arg names
+        virtual bool isType(const type_info& _a1) const = 0;// public vtable offset = 0x0 missing arg names
         // no_addr void ListScrollBar(const class MyGUI::ListScrollBar & _a1);// public missing arg names
         // no_addr void ListScrollBar();// public
         // no_addr void setCaption(const class MyGUI::UString & _a1);// public missing arg names
