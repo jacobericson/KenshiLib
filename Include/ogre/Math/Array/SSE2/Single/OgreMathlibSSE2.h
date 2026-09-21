@@ -509,7 +509,11 @@ namespace Ogre
         static void SinCos4( ArrayReal x, ArrayReal &outSin, ArrayReal &outCos );
     };
 
-#if OGRE_COMPILER != OGRE_COMPILER_CLANG && OGRE_COMPILER != OGRE_COMPILER_GNUC
+// ArrayReal is __m128, which is a union only under MSVC; clang and gcc make it a
+// builtin vector type, which cannot take operator overloads. OGRE_COMPILER cannot
+// answer this: OgrePlatform.h tests _MSC_VER before __clang__, so clang-cl reports
+// itself as MSVC here.
+#if !defined( __clang__ ) && !defined( __GNUC__ )
 //  inline ArrayReal operator - ( ArrayReal l )                 { return _mm_xor_ps( l, MathlibSSE2::SIGN_MASK ); }
 //  inline ArrayReal operator + ( ArrayReal l, Real r )         { return _mm_add_ps( l, _mm_set1_ps( r ) ); }
 //  inline ArrayReal operator + ( Real l, ArrayReal r )         { return _mm_add_ps( _mm_set1_ps( l ), r ); }

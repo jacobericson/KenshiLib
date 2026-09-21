@@ -41,7 +41,7 @@ public:
         MASK_XYZW = 0xF
     };
 
-    static const hkVector4fComparison convert(const union __m128& x);// public RVA = 0x14A440
+    static const hkVector4fComparison convert(const __m128& x);// public RVA = 0x14A440
     static Mask getMaskForComponent(int i);// public RVA = 0xDCE220
     int getIndexOfLastComponentSet() const;// public RVA = 0x3D1E10
     int getIndexOfFirstComponentSet() const;// public RVA = 0xC637D0
@@ -59,7 +59,7 @@ public:
     Mask getMask(Mask m) const;// public RVA = 0xDEEAA0
     Mask getMask() const;// public RVA = 0x3D1E00
     // no_addr static unsigned int getCombinedMask(const class hkVector4fComparison & _a1, const class hkVector4fComparison & _a2, const class hkVector4fComparison & _a3);// public missing arg names
-    union __m128 m_mask; // 0x0 Member
+    __m128 m_mask; // 0x0 Member
 };
 
 class hkQuaternionf;
@@ -281,7 +281,7 @@ public:
     static const hkVector4f& getZero();// public RVA = 0xBCE9D0
     static const hkVector4f& getConstant(hkVectorConstant vectorConstant);// public RVA = 0xDCE200
     // no_addr void reduceToHalfPrecision();// public
-    union __m128 m_quad; // 0x0 Member
+    __m128 m_quad; // 0x0 Member
     // no_addr const union __m128 & getQuad();// public
     // no_addr union __m128 & getQuad();// public
     // no_addr void add4(const class hkVector4f & _a1);// public missing arg names
