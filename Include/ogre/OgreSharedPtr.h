@@ -197,9 +197,11 @@ namespace Ogre {
         /* For C++11 compilers, use enable_if to only expose functions when viable
          *
          * MSVC 2012 and earlier only claim conformance to C++98. This is fortunate,
-         * because they don't support default template parameters
+         * because they don't support default template parameters. clang-cl does not
+         * claim C++98: it reports the real __cplusplus against whichever standard
+         * library it was pointed at, so test the library as well. VS2012 is 540.
          */
-#if __cplusplus >= 201103L && !defined( __APPLE__ )
+#if __cplusplus >= 201103L && !defined( __APPLE__ ) && ( !defined( _CPPLIB_VER ) || _CPPLIB_VER >= 540 )
         template<class Y,
             class = typename std::enable_if<std::is_convertible<Y*, T*>::value>::type>
 #else
@@ -216,7 +218,7 @@ namespace Ogre {
         }
 
         
-#if __cplusplus >= 201103L && !defined( __APPLE__ )
+#if __cplusplus >= 201103L && !defined( __APPLE__ ) && ( !defined( _CPPLIB_VER ) || _CPPLIB_VER >= 540 )
         template<class Y,
                  class = typename std::enable_if<std::is_assignable<T*, Y*>::value>::type>
 #else
